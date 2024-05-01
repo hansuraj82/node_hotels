@@ -18,6 +18,8 @@ app.use('/person',personRoutes);
 //Routes for '/menuitems' to get and post the data
 const menuitemsRoutes = require('./routes/menuItemsRoutes');
 app.use('/menuitems',menuitemsRoutes);
+
+
 //Post route to add a person
 // app.post('/person',async(req,res) => {
 //   try {
