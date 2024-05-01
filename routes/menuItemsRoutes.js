@@ -83,10 +83,12 @@ router.delete('/:food_id', async(req,res) => {
     try{
         const food_id = req.params.food_id; // ID of that food items which is to be deleted
     const deletedFoodItem = await menuItem.findByIdAndDelete(food_id);
+    //if there is no deleted food item due to not found of any food item 
     if(! deletedFoodItem) {
         console.log("food item not found");
         res.status(404).json({'Error': 'food item not found'});
     }
+    // if foodItem successfully deleted
     console.log("food Item Deleted successfully");
     res.status(200).json({'Message':'Food Item Delted Successfully'})
 
