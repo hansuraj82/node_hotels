@@ -1,12 +1,13 @@
 const express = require('express');
 const { json } = require('stream/consumers');
 const db = require('./db')
+require('dotenv').config();
 const Person = require('./models/person');
 const menuItem = require('./models/menuItem')
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); //req.body
-const port = 5500;
+const PORT = process.env.PORT || 5500
 
 app.get('/',(req,res)=> {
     res.send("Hello sir how can i help You?");
@@ -83,7 +84,7 @@ app.use('/menuitems',menuitemsRoutes);
 //     }
 // })
 
-app.listen(port,()=> {
+app.listen(PORT,()=> {
     console.log("i am live on the port 5500");
 });
 
