@@ -24,6 +24,6 @@ const hotel_branch_schema = new mongoose.Schema({
 })
 
 // create a model
-const hotel_branch = mongoose.model('hotel_branch_info',hotel_branch_schema);
+const hotel_branch = mongoose.model('hotel_branch_infos',hotel_branch_schema);
 //Exporting the hotel_branch schema 
 module.exports = hotel_branch;
