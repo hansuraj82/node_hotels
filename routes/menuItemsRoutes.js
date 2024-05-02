@@ -14,6 +14,7 @@ router.post('/',async (req,res) => {
 
         //save the new menuList to the database
         const response = await newMenuList.save();
+        console.log("Menu List saved Successfully");
         res.status(200).json(response);
 
     } catch(error) {
@@ -27,6 +28,7 @@ router.post('/',async (req,res) => {
 router.get('/', async(req,res) => {
     try {
         const response = await menuItems.find();
+        console.log("menu Items fetched successfully");
         res.status(200).json(response)
     } catch(error) {
         console.log(error);
@@ -41,7 +43,7 @@ router.get('/:taste', async (req,res) => {
         const itemtaste = req.params.taste;
         if(itemtaste == 'sour' || itemtaste == 'spicy' || itemtaste == 'sweet' || itemtaste == 'bitter') {
             const response = await menuItems.find({taste:itemtaste})
-            console.log("Item(s) found for such taste")
+            console.log("Item(s) found for such taste successfully");
             res.status(200).json(response);
         } else {
             res.status(404).json({'Error': 'Items Not found'})

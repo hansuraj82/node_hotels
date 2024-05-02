@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); //req.body
-const PORT = process.env.PORT || 5500
+const PORT = process.env.PORT || 3000;
 
 app.get('/',(req,res)=> {
     res.send("Hello sir how can i help You?");
@@ -18,9 +18,12 @@ app.use('/person',personRoutes);
 const menuitemsRoutes = require('./routes/menuItemsRoutes');
 app.use('/menuitems',menuitemsRoutes);
 
+//Routes for branch_details
+const branchRoutes = require('./routes/branchRoutes');
+app.use('/branch',branchRoutes);
 
 app.listen(PORT,()=> {
-    console.log("i am live on the port 5500");
+    console.log(`i am live on the port ${PORT}`);
 });
 
 

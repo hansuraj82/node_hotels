@@ -35,6 +35,7 @@ router.get('/', async (req, res) => {
     //Handle get method
     try {
         const data = await Person.find();
+        console.log("Data for person fetched successfully");
         res.status(200).json(data);
     } catch (error) {
         console.log(error);
