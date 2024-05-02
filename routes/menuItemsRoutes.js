@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const menuItems = require('../models/menuItem');
-const menuItem = require('../models/menuItem');
 
 // Define routes for '/menuitems'
 
@@ -41,7 +40,7 @@ router.get('/:taste', async (req,res) => {
     try {
         const itemtaste = req.params.taste;
         if(itemtaste == 'sour' || itemtaste == 'spicy' || itemtaste == 'sweet' || itemtaste == 'bitter') {
-            const response = await menuItem.find({taste:itemtaste})
+            const response = await menuItems.find({taste:itemtaste})
             console.log("Item(s) found for such taste")
             res.status(200).json(response);
         } else {
@@ -61,7 +60,7 @@ router.put('/:food_id', async(req,res) => {
         const foodId = req.params.food_id; // id of that food item which we want to update
         const updated_food_data = req.body // the data to be updated for  fooditem 
         // 
-        const response = await menuItem.findByIdAndUpdate(foodId,updated_food_data, {
+        const response = await menuItems.findByIdAndUpdate(foodId,updated_food_data, {
             new: true,
             runValidators: true
         });
@@ -82,7 +81,7 @@ router.put('/:food_id', async(req,res) => {
 router.delete('/:food_id', async(req,res) => {
     try{
         const food_id = req.params.food_id; // ID of that food items which is to be deleted
-    const deletedFoodItem = await menuItem.findByIdAndDelete(food_id);
+    const deletedFoodItem = await menuItems.findByIdAndDelete(food_id);
     //if there is no deleted food item due to not found of any food item 
     if(! deletedFoodItem) {
         console.log("food item not found");
