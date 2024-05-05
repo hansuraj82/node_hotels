@@ -14,7 +14,7 @@ passport.use(new LocalStrategy(async (USERNAME, PASSWORD, done) => {
         }
         //if user found in person schema data
         console.log('user found');
-        const isPasswordMatch =  await user.comparePassword(PASSWORD);
+        const isPasswordMatch =  await user.comparePassword(PASSWORD);3
         //if password matched with the user in person schema
         if (isPasswordMatch) {
             console.log("password Matched");
@@ -34,4 +34,4 @@ passport.use(new LocalStrategy(async (USERNAME, PASSWORD, done) => {
 }));
 
 // Exporting passport for use in main.js to authentication via username and password
-module.exports = passport;
+module.exports = passport;33333
