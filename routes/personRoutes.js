@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-// Get method for '/person
+// Get method for '/person to get data from database
 router.get('/', async (req, res) => {
     //Handle get method
     try {
