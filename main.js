@@ -32,7 +32,7 @@ app.get('/' ,(req, res) => {
 
 // Routes for '/person' to get and post the data
 const personRoutes = require('./routes/personRoutes')
-app.use('/person',LocalAuthMiddleware, personRoutes);
+app.use('/person', personRoutes);
 
 //Routes for '/menuitems' to get and post the data
 const menuitemsRoutes = require('./routes/menuItemsRoutes');

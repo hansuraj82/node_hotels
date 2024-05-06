@@ -14,7 +14,7 @@ passport.use(new LocalStrategy(async (USERNAME, PASSWORD, done) => {
         }
         //if user found in person schema data
         console.log('user found');
-        const isPasswordMatch =  await user.comparePassword(PASSWORD);3
+        const isPasswordMatch =  await user.comparePassword(PASSWORD);
         //if password matched with the user in person schema
         if (isPasswordMatch) {
             console.log("password Matched");
